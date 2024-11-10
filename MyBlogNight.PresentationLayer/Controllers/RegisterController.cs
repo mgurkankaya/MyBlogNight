@@ -8,14 +8,11 @@ namespace MyBlogNight.PresentationLayer.Controllers
 {
     public class RegisterController : Controller
     {
-
         private readonly UserManager<AppUser> _userManager;
-
         public RegisterController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
-
         public IActionResult SignUp()
         {
             return View();
@@ -32,7 +29,6 @@ namespace MyBlogNight.PresentationLayer.Controllers
                 ImageUrl = "test"
 
             };
-
             if (model.Password == model.ConfirmPassword)
             {
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -40,7 +36,6 @@ namespace MyBlogNight.PresentationLayer.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-
                 else
                 {
                     foreach (var item in result.Errors)

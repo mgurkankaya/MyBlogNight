@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyBlogNight.EntityLayer.Concrete;
+using MyBlogNight.PresentationLayer.Models;
 
 namespace MyBlogNight.PresentationLayer.Controllers
 {
@@ -14,6 +15,28 @@ namespace MyBlogNight.PresentationLayer.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(LoginViewModel model)
+        {
+            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password,false,true);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Default");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Kullanıcı adı veya şifre yanlış!");
+                return View();
+            }
+            
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Default");
         }
     }
 }
