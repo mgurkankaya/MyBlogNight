@@ -1,4 +1,5 @@
-﻿using MyBlogNight.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlogNight.DataAccessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Context;
 using MyBlogNight.DataAccessLayer.Repositories;
 using MyBlogNight.EntityLayer.Concrete;
@@ -15,6 +16,13 @@ namespace MyBlogNight.DataAccessLayer.Concrete
         public EfArticleDal(BlogContext context):base(context)
         {
 
+        }
+
+        public List<Article> ArticleListWithCategory()
+        {
+           var context = new BlogContext();
+            var value = context.Articles.Include(x => x.Category).ToList();
+            return value;
         }
     }
 }

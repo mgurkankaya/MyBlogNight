@@ -11,6 +11,11 @@ namespace MyBlogNight.BusinessLayer.Concrete
 {
     public class ArticleManager(IArticleDal _articleDal) : IArticleService
     {
+        public List<Article> TArticleListWithCategory()
+        {
+            return _articleDal.ArticleListWithCategory();
+        }
+
         public void TDelete(int id)
         {
            _articleDal.Delete(id);

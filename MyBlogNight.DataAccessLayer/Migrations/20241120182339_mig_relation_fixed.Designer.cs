@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyBlogNight.DataAccessLayer.Context;
 
@@ -11,9 +12,11 @@ using MyBlogNight.DataAccessLayer.Context;
 namespace MyBlogNight.DataAccessLayer.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20241120182339_mig_relation_fixed")]
+    partial class mig_relation_fixed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -276,11 +279,16 @@ namespace MyBlogNight.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
+                    b.Property<int?>("CategoryId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId");
+
+                    b.HasIndex("CategoryId1");
 
                     b.ToTable("Categories");
                 });
@@ -433,7 +441,7 @@ namespace MyBlogNight.DataAccessLayer.Migrations
             modelBuilder.Entity("MyBlogNight.EntityLayer.Concrete.Article", b =>
                 {
                     b.HasOne("MyBlogNight.EntityLayer.Concrete.Category", "Category")
-                        .WithMany("Articles")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -443,7 +451,14 @@ namespace MyBlogNight.DataAccessLayer.Migrations
 
             modelBuilder.Entity("MyBlogNight.EntityLayer.Concrete.Category", b =>
                 {
-                    b.Navigation("Articles");
+                    b.HasOne("MyBlogNight.EntityLayer.Concrete.Category", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("CategoryId1");
+                });
+
+            modelBuilder.Entity("MyBlogNight.EntityLayer.Concrete.Category", b =>
+                {
+                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }
