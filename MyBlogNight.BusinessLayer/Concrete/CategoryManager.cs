@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 
 namespace MyBlogNight.BusinessLayer.Concrete
 {
-  
     public class CategoryManager(ICategoryDal _categoryDal) : ICategoryService
     {
-       
         public void TDelete(int id)
         {
             _categoryDal.Delete(id);
@@ -34,7 +32,7 @@ namespace MyBlogNight.BusinessLayer.Concrete
             }
             else
             {
-                //Hata Mesajı
+                throw new ArgumentException("Kategori adı 5 ile 50 karakter arasında olmalıdır.");
             }
         }
         public void TUpdate(Category entity)

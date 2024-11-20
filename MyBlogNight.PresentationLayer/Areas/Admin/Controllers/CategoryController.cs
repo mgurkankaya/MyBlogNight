@@ -2,8 +2,10 @@
 using MyBlogNight.BusinessLayer.Abstract;
 using MyBlogNight.EntityLayer.Concrete;
 
-namespace MyBlogNight.PresentationLayer.Controllers
+namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("[area]/[controller]/[action]/{id?}")]
     public class CategoryController(ICategoryService _categoryService) : Controller
     {
         public IActionResult CategoryList()
@@ -20,6 +22,7 @@ namespace MyBlogNight.PresentationLayer.Controllers
         [HttpPost]
         public IActionResult CreateCategory(Category category)
         {
+          
             _categoryService.TInsert(category);
             return RedirectToAction("CategoryList");
         }
@@ -33,6 +36,7 @@ namespace MyBlogNight.PresentationLayer.Controllers
         [HttpGet]
         public IActionResult UpdateCategory(int id)
         {
+          
             var value = _categoryService.TGetById(id);
             return View(value);
         }

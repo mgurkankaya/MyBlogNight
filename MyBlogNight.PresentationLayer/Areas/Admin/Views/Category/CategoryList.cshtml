@@ -1,0 +1,51 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card my-4 shadow">
+            <div class="card-header bg-gradient-primary shadow-primary text-white border-radius-lg py-3 px-4 d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-capitalize text-white">Kategori Listesi</h6>
+                <a href="/Admin/Category/CreateCategory" class="text-white d-flex align-items-center">
+                    <i class="fas fa-plus-circle fs-4"></i>
+                </a>
+            </div>
+            <div class="card-body px-4 pb-3">
+                <div class="table-responsive">
+                    <table class="table table-hover align-items-center">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-8">ID</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-8 text-center">Kategori</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-8 text-center">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">@item.CategoryId</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge badge-sm bg-gradient-success">@item.CategoryName</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/Admin/Category/DeleteCategory/@item.CategoryId" class="text-danger mx-2" title="Sil">
+                                            <i class="fas fa-trash-alt fs-5"></i>
+                                        </a>
+                                        <a href="/Admin/Category/UpdateCategory/@item.CategoryId" class="text-warning mx-2" title="Güncelle">
+                                            <i class="fas fa-edit fs-5"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
