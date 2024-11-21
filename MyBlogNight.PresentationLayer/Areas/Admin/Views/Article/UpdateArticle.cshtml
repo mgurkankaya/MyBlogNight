@@ -1,0 +1,49 @@
+﻿@model Article
+@{
+    ViewData["Title"] = "UpdateArticle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    input.form-control {
+        border: 1px solid #E91E63; /* Gri kenarlık */
+        height: 50px; /* Yüksekliği artır */
+        padding: 10px; /* İç boşluk ekle */
+        font-size: 16px; /* Yazı boyutunu artır */
+    }
+</style>
+<div class="row">
+    <div class="card-body p-3 pb-0">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h5 class="text-white">Makale Güncelle</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="ArticleId" class="form-control" />
+                            <div class="form-group">
+                                <label>Başlık</label>
+                                <input type="text" asp-for="Title" class="form-control"  />
+                                <label>Küçük Kapak Fotoğrafı</label>
+                                <input type="text" asp-for="CoverImageUrl" class="form-control"  />
+                                <label>Ana Kapak Fotoğrafı</label>
+                                <input type="text" asp-for="MainImageUrl" class="form-control" />
+                                <label>Kategori Seç</label>
+                                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+                            </div>
+                            <div class="mt-3 text-end">
+                                <button type="submit" class="btn btn-primary">Güncelle</button>
+                                <a href="/Admin/Article/ArticleList" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-left"></i> Geri Dön
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

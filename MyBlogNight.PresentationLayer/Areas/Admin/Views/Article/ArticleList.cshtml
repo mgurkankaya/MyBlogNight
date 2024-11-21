@@ -8,7 +8,7 @@
         <div class="card my-4 shadow">
             <div class="card-header bg-gradient-primary shadow-primary text-white border-radius-lg py-3 px-4 d-flex justify-content-between align-items-center">
                 <h6 class="mb-0 text-capitalize text-white">Makale Listesi</h6>
-                <a href="/Article/Create" class="text-white d-flex align-items-center">
+                <a href="/Admin/Article/CreateArticle" class="text-white d-flex align-items-center">
                     <i class="fas fa-plus-circle fs-4"></i>
                 </a>
             </div>
@@ -37,13 +37,13 @@
                                         <span class="badge badge-sm bg-gradient-success">@item.Category.CategoryName</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="/Article/DeleteArticle/@item.ArticleId" class="text-danger mx-2" title="Sil">
+                                        <a href="/Admin/Article/DeleteArticle/@item.ArticleId" class="text-danger mx-2" title="Sil">
                                             <i class="fas fa-trash-alt fs-5"></i>
                                         </a>
-                                        <a href="/Article/UpdateArticle/@item.ArticleId" class="text-warning mx-2" title="Güncelle">
+                                        <a href="/Admin/Article/UpdateArticle/@item.ArticleId" class="text-warning mx-2" title="Güncelle">
                                             <i class="fas fa-edit fs-5"></i>
                                         </a>
-                                        <a href="/Article/CommentArticle/@item.ArticleId" class="text-info mx-2" title="Yoruma Bak">
+                                        <a href="/Admin/Article/CommentArticle/@item.ArticleId" class="text-info mx-2" title="Yoruma Bak">
                                             <i class="fas fa-comments fs-5"></i>
                                         </a>
                                     </td>
