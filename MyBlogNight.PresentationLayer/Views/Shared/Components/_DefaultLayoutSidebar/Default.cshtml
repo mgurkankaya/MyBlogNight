@@ -1,48 +1,49 @@
 ﻿@model List<Category>
-<div class="col-md-4">
-    <!-- Kategoriler -->
-  
-        <div class="mb-4">
-            <h5 class="border-bottom pb-2">Kategoriler</h5>
-            <ul class="list-group">
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="./index.html"><img src="img/humberger/humberger-logo.png" alt=""></a>
+    </div>
+    @await Component.InvokeAsync("_DefaultLayoutNavbar")
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
             @foreach (var item in Model)
             {
-                <li class="list-group-item">
-                    <a href="#" class="text-primary">@item.CategoryName</a>
-                    </li>
+                <li><a href="@item.CategoryName">@item.CategoryName</a></li>
             }
-            </ul>
+            
+
+            
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="humberger__menu__about">
+        <div class="humberger__menu__title sidebar__item__title">
+            <h6>Sosyal Medya Hesaplarımız</h6>
         </div>
-   
-    
-
-    <!-- Sosyal Medya -->
-    <div class="mb-4">
-        <h5 class="border-bottom pb-2">Sosyal Medya</h5>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="#">Facebook</a></li>
-            <li class="list-group-item"><a href="#">Twitter</a></li>
-            <li class="list-group-item"><a href="#">Instagram</a></li>
-        </ul>
+       
+        <div class="humberger__menu__about__social sidebar__item__follow__links">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-envelope-o"></i></a>
+        </div>
     </div>
-
-    <!-- Öne Çıkan Bloglar -->
-    <div class="mb-4">
-        <h5 class="border-bottom pb-2">Öne Çıkan Bloglar</h5>
-        <ul class="list-group">
-            <li class="list-group-item">En İyi Yazılım Araçları</li>
-            <li class="list-group-item">Minimal Tasarım Rehberi</li>
-            <li class="list-group-item">2024 Seyahat Trendleri</li>
-        </ul>
-    </div>
-
-    <!-- Yazarlar -->
-    <div>
-        <h5 class="border-bottom pb-2">Yazarlar</h5>
-        <ul class="list-group">
-            <li class="list-group-item">Ahmet Yılmaz</li>
-            <li class="list-group-item">Elif Kara</li>
-            <li class="list-group-item">Mehmet Öz</li>
-        </ul>
+    <div class="humberger__menu__subscribe">
+        <div class="humberger__menu__title sidebar__item__title">
+            <h6>Subscribe</h6>
+        </div>
+        <p>Subscribe to our newsletter and get our newest updates right on your inbox.</p>
+        <form action="#">
+            <input type="text" class="email-input" placeholder="Your email">
+            <label for="agree-check">
+                I agree to the terms & conditions
+                <input type="checkbox" id="agree-check">
+                <span class="checkmark"></span>
+            </label>
+            <button type="submit" class="site-btn">Subscribe</button>
+        </form>
     </div>
 </div>

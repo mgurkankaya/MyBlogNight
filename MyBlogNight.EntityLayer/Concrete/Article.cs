@@ -15,5 +15,9 @@ namespace MyBlogNight.EntityLayer.Concrete
         public DateTime CreatedDate { get; set; }
         public string CoverImageUrl { get; set; }
         public string MainImageUrl { get; set; }
+        public string Detail { get; set; }
+        public int? ArticleViewCount { get; set; }
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

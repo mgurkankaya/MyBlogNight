@@ -1,0 +1,31 @@
+﻿@model List<Article>
+
+<div class="col-lg-6 col-md-6 col-sm-6">
+    @foreach (var item in Model)
+    {
+        <div class="categories__post__item">
+            <div class="categories__post__item__pic small__item set-bg"
+                 data-setbg="@item.MainImageUrl">
+
+                <div class="post__meta">
+                    <h4>@item.CreatedDate.ToString("dd")</h4>
+                    <span>@item.CreatedDate.ToString("MMM")</span>
+                </div>
+            </div>
+            <div class="categories__post__item__text">
+                <span class="post__label">@item.Title</span>
+                <h3><a href="#">@item.Category.CategoryName</a></h3>
+                <ul class="post__widget">
+                    <li>by <span>@item.AppUser.Name</span></li>
+                    <li>3 min read</li>
+                    <li>20 Comment</li>
+                </ul>
+                <p>
+                    @item.Detail
+                </p>
+            </div>
+        </div>
+    }
+  
+
+</div>

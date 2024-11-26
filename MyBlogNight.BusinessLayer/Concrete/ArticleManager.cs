@@ -11,6 +11,11 @@ namespace MyBlogNight.BusinessLayer.Concrete
 {
     public class ArticleManager(IArticleDal _articleDal) : IArticleService
     {
+        public List<Article> TArticleListWidthCategoryAndAppUser()
+        {
+            return _articleDal.ArticleListWidthCategoryAndAppUser();
+        }
+
         public List<Article> TArticleListWithCategory()
         {
             return _articleDal.ArticleListWithCategory();

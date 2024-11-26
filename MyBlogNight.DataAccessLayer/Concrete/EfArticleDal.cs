@@ -15,7 +15,15 @@ namespace MyBlogNight.DataAccessLayer.Concrete
     {
         public EfArticleDal(BlogContext context):base(context)
         {
+            
 
+        }
+
+        public List<Article> ArticleListWidthCategoryAndAppUser()
+        {
+            var context = new BlogContext();
+            var values = context.Articles.Include(x => x.Category).Include(x => x.AppUser).ToList();
+            return values;
         }
 
         public List<Article> ArticleListWithCategory()
