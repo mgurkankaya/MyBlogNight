@@ -32,5 +32,20 @@ namespace MyBlogNight.DataAccessLayer.Concrete
             var value = context.Articles.Include(x => x.Category).ToList();
             return value;
         }
+
+        public Article ArticleListWithCategoryAndAppUserByArticleId(int id)
+        {
+            var context = new BlogContext();
+            var values = context.Articles.Where(x => x.ArticleId == id).Include(y => y.Category).Include(z => z.AppUser).FirstOrDefault();
+            return values;
+        }
+
+        public void ArticleViewCountIncrease(int id)
+        {
+            var context = new BlogContext();
+            var updatedValue = context.Articles.Find(id);
+            updatedValue.ArticleViewCount += 1;
+            context.SaveChanges();
+        }
     }
 }

@@ -12,5 +12,8 @@ namespace MyBlogNight.BusinessLayer.Abstract
     {
         List<Article> TArticleListWithCategory();
         List<Article> TArticleListWidthCategoryAndAppUser();
+        public Article TArticleListWithCategoryAndAppUserByArticleId(int id);
+
+        public void ArticleViewCountIncrease(int id);
     }
 }

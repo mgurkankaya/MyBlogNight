@@ -11,6 +11,11 @@ namespace MyBlogNight.BusinessLayer.Concrete
 {
     public class ArticleManager(IArticleDal _articleDal) : IArticleService
     {
+        public void ArticleViewCountIncrease(int id)
+        {
+            _articleDal.ArticleViewCountIncrease(id);
+        }
+
         public List<Article> TArticleListWidthCategoryAndAppUser()
         {
             return _articleDal.ArticleListWidthCategoryAndAppUser();
@@ -21,9 +26,15 @@ namespace MyBlogNight.BusinessLayer.Concrete
             return _articleDal.ArticleListWithCategory();
         }
 
+        public Article TArticleListWithCategoryAndAppUserByArticleId(int id)
+        {
+            return _articleDal.ArticleListWithCategoryAndAppUserByArticleId(id);
+
+        }
+
         public void TDelete(int id)
         {
-           _articleDal.Delete(id);
+            _articleDal.Delete(id);
         }
 
         public List<Article> TGetAll()
