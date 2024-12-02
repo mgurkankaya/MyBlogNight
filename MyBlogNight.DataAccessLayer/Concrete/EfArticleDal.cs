@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace MyBlogNight.DataAccessLayer.Concrete
 {
-    public class EfArticleDal:GenericRepository<Article>,IArticleDal
+    public class EfArticleDal : GenericRepository<Article>, IArticleDal
     {
-        public EfArticleDal(BlogContext context):base(context)
+        public EfArticleDal(BlogContext context) : base(context)
         {
-            
+
 
         }
 
@@ -28,7 +28,7 @@ namespace MyBlogNight.DataAccessLayer.Concrete
 
         public List<Article> ArticleListWithCategory()
         {
-           var context = new BlogContext();
+            var context = new BlogContext();
             var value = context.Articles.Include(x => x.Category).ToList();
             return value;
         }
@@ -46,6 +46,13 @@ namespace MyBlogNight.DataAccessLayer.Concrete
             var updatedValue = context.Articles.Find(id);
             updatedValue.ArticleViewCount += 1;
             context.SaveChanges();
+        }
+
+        public List<Article> GetArticlesByAppUserId(int id)
+        {
+            var context = new BlogContext();
+            var values = context.Articles.Where(x => x.AppUserId == id).ToList();
+            return values;
         }
     }
 }

@@ -28,6 +28,7 @@
                             <div class="mb-3">
                                 <label for="CategoryName" class="form-label">Kategori Adı</label>
                                 <input type="text" asp-for="CategoryName" id="CategoryName" class="form-control" />
+                                <span class="text-danger" asp-validation-for="CategoryName"></span>
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-success">

@@ -5,121 +5,167 @@
 }
 
 
-<!-- Single Post Section Begin -->
-<section class="single-post spad">
-    <div class="single-post__hero set-bg" data-setbg="@Model.CoverImageUrl"></div>
+<section class="section lb m3rem">
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-8">
-                <div class="single-post__title">
-                    <div class="single-post__title__meta">
-                        <h2>@Model.CreatedDate.ToString("dd")</h2>
-                        <span>@Model.CreatedDate.ToString("MMM")</span>
-                    </div>
-                    <div class="single-post__title__text">
-                        <ul class="label">
-                            <li>Vegan</li>
-                            <li>Desserts</li>
-                        </ul>
-                        <h4>@Model.Title</h4>
-                        <ul class="widget">
-                            <li>by  @Model.AppUser.Name @Model.AppUser.Surname</li>
-                            <li>3 min read</li>
-                            <li>20 Comment</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="single-post__social__item">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                    </ul>
-                </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-title-area">
+                        <ol class="breadcrumb hidden-xs-down">
+                            <li class="breadcrumb-item"><a href="/Default/">Anasayfa</a></li>
+                            <li class="breadcrumb-item active">@Model.Title</li>
+                        </ol>
 
+                        <span class="color-yellow"><a href="marketing-category.html" title="">Lifestyle</a></span>
 
-                <div class="single-post__middle__text">
-                    <p>
-                       @Model.Detail
-                    </p>
-                </div>
+                        <h3>@Model.Title</h3>
 
-                <div class="single-post__tags">
-                    <a href="#">Food</a>
-                    <a href="#">Vegan</a>
-                    <a href="#">Tomato</a>
-                    <a href="#">Weightloss</a>
-                </div>
-                <div class="single-post__next__previous">
+                        <div class="blog-meta big-meta">
+                            <small><a href="marketing-single.html" title="">@Model.CreatedDate.ToString("dd-MMM-yyyy")</a></small>
+                            <small><a href="blog-author.html" title="">by @Model.AppUser.UserName</a></small>
+                            <small><a href="#" title=""><i class="fa fa-eye"></i> @Model.ArticleViewCount</a></small>
+                        </div><!-- end meta -->
+
+                        <div class="post-sharing">
+                            <ul class="list-inline">
+                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div><!-- end post-sharing -->
+                    </div><!-- end title -->
+
+                    <div class="single-post-media">
+                        <img src="@Model.MainImageUrl" alt="" class="img-fluid">
+                    </div><!-- end media -->
+
+                    <div class="blog-content">
+                        <div class="pp">
+                            <p>@Model.Detail</p>
+                        </div><!-- end pp -->
+                    </div><!-- end content -->
+
+                    <div class="blog-title-area">
+                        <div class="tag-cloud-single">
+                            <span>Tags</span>
+                            <small><a href="#" title="">lifestyle</a></small>
+                            <small><a href="#" title="">colorful</a></small>
+                            <small><a href="#" title="">trending</a></small>
+                            <small><a href="#" title="">another tag</a></small>
+                        </div><!-- end meta -->
+
+                        <div class="post-sharing">
+                            <ul class="list-inline">
+                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div><!-- end post-sharing -->
+                    </div><!-- end title -->
+
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <a href="#" class="single-post__previous">
-                                <h6><span class="arrow_carrot-left"></span> Previous posts</h6>
-                                <div class="single-post__previous__meta">
-                                    <h4>08</h4>
-                                    <span>Aug</span>
-                                </div>
-                                <div class="single-post__previous__text">
-                                    <span>Dinner</span>
-                                    <h5>The Best Weeknight Baked <br />Potatoes, 3 Creative Ways</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <a href="#" class="single-post__next">
-                                <h6>Next posts <span class="arrow_carrot-right"></span> </h6>
-                                <div class="single-post__next__meta">
-                                    <h4>05</h4>
-                                    <span>Aug</span>
-                                </div>
-                                <div class="single-post__next__text">
-                                    <span>Smoothie</span>
-                                    <h5>The $8 French Rosé I Buy in <br />Bulk Every Summer</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-post__author__profile">
-                    <div class="single-post__author__profile__pic">
-                        <img src="img/categories/single-post/author-profile.jpg" alt="">
-                    </div>
-                    <div class="single-post__author__profile__text">
-                        <h4>Lena Mollein.</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div class="single-post__author__profile__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-                @await Component.InvokeAsync("_CommentListByArticleId")
+                        <div class="col-lg-12">
+                            <div class="banner-spot clearfix">
+                                <div class="banner-img">
+                                    <img src="upload/banner_01.jpg" alt="" class="img-fluid">
+                                </div><!-- end banner-img -->
+                            </div><!-- end banner -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
 
+                    <hr class="invis1">
 
-                <div class="single-post__leave__comment">
-                    <div class="widget__title">
-                        <h4>Leave a comment</h4>
-                    </div>
-                    <form action="#">
-                        <div class="input-list">
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Email">
-                            <input type="text" placeholder="Website">
+                    <div class="custombox authorbox clearfix">
+                        <h4 class="small-title">About author</h4>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <img src="upload/author.jpg" alt="" class="img-fluid rounded-circle">
+                            </div><!-- end col -->
+
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                <h4><a href="#">Jessica</a></h4>
+                                <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis tempus elit quis risus congue feugiat. Thanks for stop Markedia!</p>
+
+                                <div class="topsocial">
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i class="fa fa-link"></i></a>
+                                </div><!-- end social -->
+
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end author-box -->
+
+                    <hr class="invis1">
+
+                    <div class="custombox clearfix">
+                        <h4 class="small-title">You may also like</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog-box">
+                                    <div class="post-media">
+                                        <a href="marketing-single.html" title="">
+                                            <img src="upload/market_blog_02.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect">
+                                                <span class=""></span>
+                                            </div><!-- end hover -->
+                                        </a>
+                                    </div><!-- end media -->
+                                    <div class="blog-meta">
+                                        <h4><a href="marketing-single.html" title="">We are guests of ABC Design Studio</a></h4>
+                                        <small><a href="blog-category-01.html" title="">Trends</a></small>
+                                        <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
+                            </div><!-- end col -->
+
+                            <div class="col-lg-6">
+                                <div class="blog-box">
+                                    <div class="post-media">
+                                        <a href="marketing-single.html" title="">
+                                            <img src="upload/market_blog_03.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect">
+                                                <span class=""></span>
+                                            </div><!-- end hover -->
+                                        </a>
+                                    </div><!-- end media -->
+                                    <div class="blog-meta">
+                                        <h4><a href="marketing-single.html" title="">Nostalgia at work with family</a></h4>
+                                        <small><a href="blog-category-01.html" title="">News</a></small>
+                                        <small><a href="blog-category-01.html" title="">20 July, 2017</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end custom-box -->
+
+                    <hr class="invis1">
+
+                    @await Component.InvokeAsync("_CommentListByArticleId")
+
+                    <hr class="invis1">
+
+                    <div class="custombox clearfix">
+                        <h4 class="small-title">Leave a Reply</h4>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form class="form-wrapper">
+                                    <input type="text" class="form-control" placeholder="Your name">
+                                    <input type="text" class="form-control" placeholder="Email address">
+                                    <input type="text" class="form-control" placeholder="Website">
+                                    <textarea class="form-control" placeholder="Your comment"></textarea>
+                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                </form>
+                            </div>
                         </div>
-                        <textarea placeholder="Message"></textarea>
-                        <button type="submit" class="site-btn">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div>
+                </div><!-- end page-wrapper -->
+            </div><!-- end col -->
+            @await Component.InvokeAsync("_BlogDetailSideBar")
+
+        </div><!-- end row -->
+    </div><!-- end container -->
 </section>
-<!-- Single Post Section End 

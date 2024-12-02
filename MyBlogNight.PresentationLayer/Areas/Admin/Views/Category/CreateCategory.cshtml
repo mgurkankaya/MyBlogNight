@@ -23,6 +23,7 @@
                         <form method="post">
                             <div class="form-group">
                                 <input type="text" asp-for="CategoryName" id="CategoryName" class="form-control" placeholder="Kategori adı girin" />
+                                <span class="text-danger" asp-validation-for="CategoryName"></span>
                             </div>
                          
                             <div class="mt-3 text-end">

@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBlogNight.BusinessLayer.Abstract;
+using MyBlogNight.BusinessLayer.ValidationRules.CategoryValidationRules;
 using MyBlogNight.EntityLayer.Concrete;
+using FluentValidation.Results;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
 {
@@ -16,15 +19,33 @@ namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult CreateCategory()
         {
+           
             return View();
         }
 
         [HttpPost]
         public IActionResult CreateCategory(Category category)
         {
-          
-            _categoryService.TInsert(category);
-            return RedirectToAction("CategoryList");
+            ModelState.Clear();
+            CreateCategoryValidator validationRules = new CreateCategoryValidator();
+            ValidationResult result = validationRules.Validate(category);
+
+            if (result.IsValid)
+            {
+                _categoryService.TInsert(category);
+                return RedirectToAction("CategoryList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
+
+
+         
         }
 
         public IActionResult DeleteCategory(int id)
@@ -44,8 +65,24 @@ namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateCategory(Category category)
         {
-            _categoryService.TUpdate(category);
-            return RedirectToAction("CategoryList");
+
+            ModelState.Clear();
+            CreateCategoryValidator validationRules = new CreateCategoryValidator();
+            ValidationResult result = validationRules.Validate(category);
+
+            if (result.IsValid)
+            {
+                _categoryService.TUpdate(category);
+                return RedirectToAction("CategoryList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }    
         }
     }
 }

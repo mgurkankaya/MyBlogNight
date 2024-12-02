@@ -2,7 +2,7 @@
 
 namespace MyBlogNight.PresentationLayer.Controllers
 {
-    public class UILayout2Controller : Controller
+    public class MemberLayoutController : Controller
     {
         public IActionResult Index()
         {

@@ -2,151 +2,58 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 @await Component.InvokeAsync("_DefaultLayoutHead")
-
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-    @await Component.InvokeAsync("_DefaultLayoutSidebar")
-    <!-- Humberger Begin -->
-    <!-- Humberger End -->
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-1 col-6 order-md-1 order-1">
-                        <div class="header__humberger">
-                            <i class="fa fa-bars humberger__open"></i>
-                        </div>
-                    </div>
-                    @await Component.InvokeAsync("_DefaultLayoutNavbar")
 
-                    <div class="col-lg-2 col-md-1 col-6 order-md-3 order-2">
-                        <div class="header__search">
-                            <i class="fa fa-search search-switch"></i>
-                        </div>
+    <div id="wrapper">
+        <header class="market-header header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="marketing-index.html"><img src="~/ui/images/version/market-logo.png" alt=""></a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-category.html">Marketing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-category.html">Make Money</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-blog.html">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketing-contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__btn">
-                        <a href="./signin.html" class="primary-btn">Subscribe</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="~/foodeiblog/img/logo.png" alt=""></a>
-                    </div>
-                </div>
+                </nav>
+            </div><!-- end container-fluid -->
+        </header><!-- end market-header -->
+        @RenderBody()
+        @await Component.InvokeAsync("_DefaultLayoutFooter")
 
-                @await Component.InvokeAsync("_DefaultLayoutSocialMedia")
 
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
-@RenderBody()
-    <!-- Footer Section Begin -->
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="footer__instagram">
-                <div class="footer__instagram__avatar">
-                    <div class="footer__instagram__avatar--pic">
-                        <img src="~/foodeiblog/img/footer/instagram-avatar.jpg" alt="">
-                    </div>
-                    <div class="footer__instagram__avatar--text">
-                        <h5>foodieblog</h5>
-                        <span>23,7k follower</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                        <div class="footer__instagram__item set-bg" data-setbg="/foodeiblog/img/footer/ip-1.jpg"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                        <div class="footer__instagram__item set-bg" data-setbg="/foodeiblog/img/footer/ip-2.jpg"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                        <div class="footer__instagram__item set-bg" data-setbg="/foodeiblog/img/footer/ip-3.jpg"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                        <div class="footer__instagram__item set-bg" data-setbg="/foodeiblog/img/footer/ip-4.jpg"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                        <div class="footer__instagram__item set-bg" data-setbg="/foodeiblog/img/footer/ip-5.jpg"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                        <div class="footer__instagram__item set-bg" data-setbg="/foodeiblog/img/footer/ip-6.jpg"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__text">
-                        <div class="footer__logo">
-                            <a href="#"><img src="~/foodeiblog/img/logo.png" alt=""></a>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut<br /> labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus
-                            commodo viverra<br /> maecenas accumsan lacus vel facilisis.
-                        </p>
-                        <div class="footer__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-envelope-o"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer__copyright">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search End -->
-    <!-- Js Plugins -->
-    <script src="~/foodeiblog/js/jquery-3.3.1.min.js"></script>
-    <script src="~/foodeiblog/js/bootstrap.min.js"></script>
-    <script src="~/foodeiblog/js/jquery.slicknav.js"></script>
-    <script src="~/foodeiblog/js/owl.carousel.min.js"></script>
-    <script src="~/foodeiblog/js/main.js"></script>
+        <div class="dmtop">Scroll to Top</div>
+
+    </div><!-- end wrapper -->
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="~/ui/js/jquery.min.js"></script>
+    <script src="~/ui/js/tether.min.js"></script>
+    <script src="~/ui/js/bootstrap.min.js"></script>
+    <script src="~/ui/js/animate.js"></script>
+    <script src="~/ui/js/custom.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-

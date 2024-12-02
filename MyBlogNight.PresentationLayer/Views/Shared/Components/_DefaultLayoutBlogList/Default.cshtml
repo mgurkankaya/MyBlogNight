@@ -1,31 +1,33 @@
 ﻿@model List<Article>
-
-<div class="col-lg-6 col-md-6 col-sm-6">
-    @foreach (var item in Model)
+@foreach (var item in Model)
     {
-        <div class="categories__post__item">
-            <div class="categories__post__item__pic small__item set-bg"
-                 data-setbg="@item.MainImageUrl">
-
-                <div class="post__meta">
-                    <h4>@item.CreatedDate.ToString("dd")</h4>
-                    <span>@item.CreatedDate.ToString("MMM")</span>
-                </div>
+<div class="blog-box wow fadeIn">
+    <div class="post-media">
+        <a href="marketing-single.html" title="">
+                <img src="@item.MainImageUrl" alt="" class="img-fluid">
+            <div class="hovereffect">
+                <span></span>
             </div>
-            <div class="categories__post__item__text">
-                <span class="post__label">@item.Title</span>
-                <h3><a href="#">@item.Category.CategoryName</a></h3>
-                <ul class="post__widget">
-                    <li>by <span>@item.AppUser.Name</span></li>
-                    <li>3 min read</li>
-                    <li>20 Comment</li>
-                </ul>
-                <p>
-                    @item.Detail
-                </p>
-            </div>
-        </div>
-    }
-  
+            <!-- end hover -->
+        </a>
+    </div>
+    <!-- end media -->
+    <div class="blog-meta big-meta text-center">
+        <div class="post-sharing">
+            <ul class="list-inline">
+                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+        </div><!-- end post-sharing -->
+            <h4><a href="/Article/ArticleDetail/@item.ArticleId" title="">@item.Title</a></h4>
+            <p>@item.Detail.Substring(0,10)</p>
+            <small><a href="marketing-category.html" title="">@item.Category.CategoryName</a></small>
+            <small><a href="marketing-single.html" title="">@item.CreatedDate.ToString("dd") GÜN ÖNCE OLARAK DÜZENLE</a></small>
+            <small><a href="#" title="">by @item.AppUser.UserName</a></small>
+        <small><a href="#" title=""><i class="fa fa-eye"></i> @item.ArticleViewCount</a></small>
+    </div><!-- end meta -->
+</div><!-- end blog-box -->
 
-</div>
+<hr class="invis">
+}

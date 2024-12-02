@@ -26,14 +26,9 @@ namespace MyBlogNight.BusinessLayer.Concrete
         }
         public void TInsert(Category entity)
         {
-            if (entity.CategoryName.Length >= 5 && entity.CategoryName.Length <= 50)
-            {
+           
                 _categoryDal.Insert(entity);
-            }
-            else
-            {
-                throw new ArgumentException("Kategori adı 5 ile 50 karakter arasında olmalıdır.");
-            }
+          
         }
         public void TUpdate(Category entity)
         {

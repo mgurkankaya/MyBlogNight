@@ -1,5 +1,7 @@
+using FluentValidation.AspNetCore;
 using MyBlogNight.BusinessLayer.Abstract;
 using MyBlogNight.BusinessLayer.Concrete;
+using MyBlogNight.BusinessLayer.Container;
 using MyBlogNight.DataAccessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Concrete;
 using MyBlogNight.DataAccessLayer.Context;
@@ -8,29 +10,17 @@ using MyBlogNight.PresentationLayer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+
+
 // Add services to the container.
 builder.Services.AddDbContext<BlogContext>();
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
 
-builder.Services.AddScoped<IArticleDal, EfArticleDal>();
-builder.Services.AddScoped<IArticleService,ArticleManager>();
+builder.Services.ContainerDependencies();
 
-builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-
-builder.Services.AddScoped<ICommentDal, EfCommentDal>();
-builder.Services.AddScoped<ICommentService, CommentManager>();
-
-builder.Services.AddScoped<IContactDal, EfContactDal>();
-builder.Services.AddScoped<IContactService, ContactManager>();
-
-builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
-
-builder.Services.AddScoped<ITagCloudDal, EfTagCloudDal>();
-builder.Services.AddScoped<ITagCloudService, TagCloudManager>();
-
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation();
 
 var app = builder.Build();
 
@@ -45,13 +35,15 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "areas",
-            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
