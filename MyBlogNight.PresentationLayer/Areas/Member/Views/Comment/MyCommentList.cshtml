@@ -1,6 +1,6 @@
-﻿@model List<MyBlogNight.EntityLayer.Concrete.Article>
+﻿@model List<Comment>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "MyCommentList";
     Layout = "~/Views/MemberLayout/Index.cshtml";
     int count = 0;
 }
@@ -10,8 +10,8 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Hi, welcome back!</h4>
-                    <p class="mb-0">Your business dashboard template</p>
+                    <h4>Hoşgeldin, Yazar Adı Soyadı</h4>
+                    <p class="mb-0">Sana ait yazar paneli burasıdır.</p>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -28,7 +28,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Table Hover</h4>
+                        <h4 class="card-title">Makalelerim</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -37,7 +37,10 @@
 
                                     <tr>
                                         <th>#</th>
+                                        <th>Yazar Adı</th>
                                         <th>Makale Adı</th>
+                                        <th>Yorum Detayı</th>
+                                        <th>Tarih</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,13 +48,16 @@
                                     {
                                         count++;
 
-                                   
-                                    <tr>
-                                        <th>@count</th>
-                                        <td>@item.Title</td>
-                                        
-                                    </tr>
-                                
+
+                                        <tr>
+                                            <th>@count</th>
+                                            <td>@item.AppUser.Name</td>
+                                            <td>@item.Article.Title</td>
+                                            <td>@item.CommentDetail</td>
+                                            <td> @(((DateTime)item.CreatedDate).ToString("dd-MMM-yyyy"))</td>
+
+                                        </tr>
+
                                     }
                                 </tbody>
                             </table>

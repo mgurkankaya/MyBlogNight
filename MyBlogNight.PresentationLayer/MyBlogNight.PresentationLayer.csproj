@@ -4984,7 +4984,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Member\Data\" />
-    <Folder Include="Areas\Member\Models\" />
     <Folder Include="wwwroot\adminPanel\.git\objects\info\" />
     <Folder Include="wwwroot\adminPanel\.git\objects\pack\" />
     <Folder Include="wwwroot\adminPanel\.git\refs\tags\" />

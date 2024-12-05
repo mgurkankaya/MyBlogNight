@@ -1,0 +1,66 @@
+﻿@model List<MyBlogNight.EntityLayer.Concrete.Article>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/MemberLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hoşgeldin, Yazar Adı Soyadı</h4>
+                    <p class="mb-0">Sana ait yazar paneli burasıdır.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Bootstrap</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Makalelerim</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-responsive-sm">
+                                <thead>
+
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Makale Adı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+
+                                   
+                                    <tr>
+                                        <th>@count</th>
+                                        <td>@item.Title</td>
+                                        
+                                    </tr>
+                                
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# card -->
+            </div>
+
+        </div>
+    </div>
+</div>

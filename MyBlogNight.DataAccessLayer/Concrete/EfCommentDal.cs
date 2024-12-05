@@ -15,6 +15,13 @@ namespace MyBlogNight.DataAccessLayer.Concrete
     {
         public EfCommentDal(BlogContext context):base(context) { }
 
+        public List<Comment> GetCommentsByAppUserId(int id)
+        {
+            var context = new BlogContext();
+            var value = context.Comments.Where(x => x.AppUserId == id).ToList();
+            return value;
+        }
+
         public List<Comment> GetCommentsByArticleId(int id)
         {
             var context = new BlogContext();
