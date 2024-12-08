@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBlogNight.DataAccessLayer.Abstract
+namespace MyBlogNight.BusinessLayer.Abstract
 {
-    public interface ICategoryDal:IGenericDal<Category>
+    public interface INewsletterService:IGenericService<Newsletter>
     {
-       public List<int> GetArticleCount();
     }
 }

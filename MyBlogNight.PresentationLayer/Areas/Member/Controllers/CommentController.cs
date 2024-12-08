@@ -11,8 +11,9 @@ namespace MyBlogNight.PresentationLayer.Areas.Member.Controllers
     {
         public async Task<IActionResult> MyCommentList()
         {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var value = _commentService.TGetCommentsByAppUserId(user.Id);
+            var userValue = await _userManager.FindByNameAsync(User.Identity.Name);
+            var userId = userValue.Id;
+            var value = _commentService.TGetCommentsByAppUserId(userId);
             return View(value);
         }
     }

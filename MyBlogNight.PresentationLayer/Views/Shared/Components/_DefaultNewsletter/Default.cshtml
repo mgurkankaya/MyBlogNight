@@ -1,0 +1,41 @@
+﻿@model Newsletter
+
+
+
+
+<div class="newsletter-widget text-center align-self-center">
+    <h3>Üye Olun!</h3>
+    <p>Mail bültenimize abone olarak blog yazılarımızı anlık takip edin.</p>
+    <form id="newsletterForm" method="post" action="/Newsletter/Subscribe">
+        <div class="form-group">
+            <label for="Email">E-posta Adresiniz:</label>
+            <input type="email" class="form-control" asp-for="Mail" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Abone Ol</button>
+    </form>
+</div>
+
+
+
+
+
+
+<script>
+    document.getElementById("newsletterForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+        })
+        .catch(error => {
+            alert("Bir hata oluştu.");
+            console.error(error);
+        });
+    });
+</script>

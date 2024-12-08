@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBlogNight.DataAccessLayer.Abstract
 {
-    public interface ICategoryDal:IGenericDal<Category>
+    public interface INewsletterDal:IGenericDal<Newsletter>
     {
-       public List<int> GetArticleCount();
     }
 }

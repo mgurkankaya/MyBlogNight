@@ -1,4 +1,5 @@
-﻿using MyBlogNight.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlogNight.DataAccessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Context;
 using MyBlogNight.DataAccessLayer.Repositories;
 using MyBlogNight.EntityLayer.Concrete;
@@ -13,5 +14,13 @@ namespace MyBlogNight.DataAccessLayer.Concrete
     public class EfCategoryDal:GenericRepository<Category>,ICategoryDal
     {
         public EfCategoryDal(BlogContext context):base(context) { }
+
+        public List<int> GetArticleCount()
+        {
+            var context = new BlogContext();
+            var result = context.Categories.Select(c => context.Articles.Count(a => a.CategoryId == c.CategoryId))
+            .ToList();
+            return result;
+        }
     }
 }

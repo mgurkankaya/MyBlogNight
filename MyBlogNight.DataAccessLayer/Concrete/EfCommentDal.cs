@@ -18,7 +18,7 @@ namespace MyBlogNight.DataAccessLayer.Concrete
         public List<Comment> GetCommentsByAppUserId(int id)
         {
             var context = new BlogContext();
-            var value = context.Comments.Where(x => x.AppUserId == id).ToList();
+            var value = context.Comments.Where(x => x.AppUserId == id).Include(y => y.Article).ThenInclude(x => x.AppUser).ToList();
             return value;
         }
 
