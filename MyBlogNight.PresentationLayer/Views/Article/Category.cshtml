@@ -1,0 +1,71 @@
+﻿@model List<MyBlogNight.EntityLayer.Concrete.Article>
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Views/UILayout/Index.cshtml"; ;
+}
+
+
+
+
+<section class="section lb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-custom-build">
+
+
+                        <div class="container">
+                        
+                            <h2>Kategorilere göre makaleler</h2>
+                            @if (Model != null && Model.Any())
+                            {
+                                <div class="row">
+                                    @foreach (var article in Model)
+                                    {
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="/Article/ArticleDetail/@article.ArticleId" title="">
+                                                    <img src="@article.MainImageUrl" alt="" class="img-fluid">
+                                                </a>
+                                            </div>
+                                            <div class="blog-meta big-meta text-center">
+                                                <h4><a href="/Article/ArticleDetail/@article.ArticleId" title="">@article.Title</a></h4>
+                                                <p>@article.Detail.Substring(0, 10)</p>
+                                                <small><a href="#" title="">@article.Category.CategoryName</a></small>
+                                                <small><a href="#" title="">@article.CreatedDate.ToString("dd MMM yyyy")</a></small>
+                                                <small><a href="#" title=""><i class="fa fa-eye"></i> @article.ArticleViewCount</a></small>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-danger">Bu kategoriye henüz makale eklenmemiş.</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="invis">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end col -->
+            @await Component.InvokeAsync("_DefaultLayoutSidebar")
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>

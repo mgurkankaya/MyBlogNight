@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBlogNight.BusinessLayer.Abstract;
+using MyBlogNight.EntityLayer.Concrete;
 
 namespace MyBlogNight.PresentationLayer.Controllers
 {
@@ -15,6 +16,19 @@ namespace MyBlogNight.PresentationLayer.Controllers
             _articleService.ArticleViewCountIncrease(id);
             var value = _articleService.TArticleListWithCategoryAndAppUserByArticleId(id);
             return View(value);
+        }
+
+       
+        public IActionResult Category(int id)
+        {
+            var articles = _articleService.TGetArticlesByCategoryId(id);
+
+            if (articles == null || !articles.Any())
+            {
+                return View(new List<Article>());
+            }
+
+            return View(articles);
         }
     }
 }

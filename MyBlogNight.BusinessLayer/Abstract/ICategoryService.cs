@@ -9,6 +9,6 @@ namespace MyBlogNight.BusinessLayer.Abstract
 {
     public interface ICategoryService:IGenericService<Category>
     {
-        public List<int> TGetArticleCount();
+       
     }
 }

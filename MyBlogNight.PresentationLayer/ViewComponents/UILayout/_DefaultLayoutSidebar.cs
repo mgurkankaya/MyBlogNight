@@ -8,6 +8,7 @@ namespace MyBlogNight.PresentationLayer.ViewComponents.UILayout
         public IViewComponentResult Invoke()
         {
             var value = _categoryService.TGetAll();
+
             return View(value);
         }
     }

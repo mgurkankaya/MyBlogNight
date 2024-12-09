@@ -1,33 +1,45 @@
-﻿@model List<Article>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Article>
 @foreach (var item in Model)
-    {
-<div class="blog-box wow fadeIn">
-    <div class="post-media">
-        <a href="marketing-single.html" title="">
+{
+    <div class="blog-box wow fadeIn">
+        <div class="post-media">
+            <a href="marketing-single.html" title="">
                 <img src="@item.MainImageUrl" alt="" class="img-fluid">
-            <div class="hovereffect">
-                <span></span>
-            </div>
-            <!-- end hover -->
-        </a>
-    </div>
-    <!-- end media -->
-    <div class="blog-meta big-meta text-center">
-        <div class="post-sharing">
-            <ul class="list-inline">
-                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
-            </ul>
-        </div><!-- end post-sharing -->
+                <div class="hovereffect">
+                    <span></span>
+                </div>
+                <!-- end hover -->
+            </a>
+        </div>
+        <!-- end media -->
+        <div class="blog-meta big-meta text-center">
+            <div class="post-sharing">
+                <ul class="list-inline">
+                    <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                    <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                    <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div><!-- end post-sharing -->
             <h4><a href="/Article/ArticleDetail/@item.ArticleId" title="">@item.Title</a></h4>
-            <p>@item.Detail.Substring(0,10)</p>
+            <p>@item.Detail.Substring(0, 10)</p>
             <small><a href="marketing-category.html" title="">@item.Category.CategoryName</a></small>
             <small><a href="marketing-single.html" title="">@item.CreatedDate.ToString("dd") GÜN ÖNCE OLARAK DÜZENLE</a></small>
             <small><a href="#" title="">by @item.AppUser.UserName</a></small>
-        <small><a href="#" title=""><i class="fa fa-eye"></i> @item.ArticleViewCount</a></small>
-    </div><!-- end meta -->
-</div><!-- end blog-box -->
+            <small><a href="#" title=""><i class="fa fa-eye"></i> @item.ArticleViewCount</a></small>
+        </div><!-- end meta -->
+    </div>
 
-<hr class="invis">
+    <!-- end blog-box -->
+
+    <hr class="invis">
 }
+
+<!-- Sayfalama (PagedListPager) -->
+<nav aria-label="Page navigation">
+    @Html.PagedListPager(
+            Model,
+            page => Url.Action("Index", new { page })
+            )
+</nav>

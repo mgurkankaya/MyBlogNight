@@ -21,15 +21,15 @@ namespace MyBlogNight.BusinessLayer.Concrete
             return _categoryDal.GetAll();
         }
 
-        public List<int> TGetArticleCount()
-        {
-            return _categoryDal.GetArticleCount();
-        }
+
 
         public Category TGetById(int id)
         {
             return _categoryDal.GetById(id);
         }
+
+      
+
         public void TInsert(Category entity)
         {
            

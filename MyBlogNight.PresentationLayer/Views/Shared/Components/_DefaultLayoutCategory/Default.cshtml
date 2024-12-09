@@ -15,7 +15,8 @@
                     </li>@foreach (var item in Model)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="marketing-category.html">@item.CategoryName</a>
+                            <!-- Dinamik kategori linki -->
+                            <a class="nav-link" href="/Article/Category/@item.CategoryId">@item.CategoryName</a>
                         </li>
                     }
 

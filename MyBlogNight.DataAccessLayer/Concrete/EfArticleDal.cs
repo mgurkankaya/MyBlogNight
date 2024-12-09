@@ -54,5 +54,26 @@ namespace MyBlogNight.DataAccessLayer.Concrete
             var values = context.Articles.Where(x => x.AppUserId == id).ToList();
             return values;
         }
+
+        public List<Article> GetTopArticles()
+        {
+
+            var context = new BlogContext();
+                var value = context.Articles.OrderByDescending(x => x.ArticleViewCount).Take(3).ToList();
+                return value;
+  
+        }
+
+        public List<Article> GetArticlesByCategoryId(int categoryId)
+        {
+            using (var context = new BlogContext())
+            {
+                return context.Articles
+                    .Where(a => a.CategoryId == categoryId)
+                    .Include(a => a.Category) 
+                    .OrderByDescending(a => a.ArticleViewCount)
+                    .ToList();
+            }
+        }
     }
 }

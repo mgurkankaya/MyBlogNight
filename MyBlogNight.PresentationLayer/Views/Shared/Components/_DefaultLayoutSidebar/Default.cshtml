@@ -48,15 +48,16 @@
             <h2 class="widget-title">Popular Categories</h2>
             <div class="link-widget">
                 <ul>
-                    @foreach (var item in Model)
+                    @foreach (var category in Model)
                     {
-                        <li><a href="#">@item.CategoryName <span>9</span></a></li>
-                        
+                        <li>
+                            <a href="#">@category.CategoryName <span>999</span></a>
+                        </li>
                     }
-                    
-                   
                 </ul>
             </div><!-- end link-widget -->
         </div><!-- end widget -->
+
+
     </div><!-- end sidebar -->
 </div><!-- end col -->

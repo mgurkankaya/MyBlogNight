@@ -52,6 +52,11 @@ namespace MyBlogNight.BusinessLayer.Concrete
             return _articleDal.GetById(id);
         }
 
+        public List<Article> TGetTopArticles()
+        {
+            return _articleDal.GetTopArticles();
+        }
+
         public void TInsert(Article entity)
         {
             _articleDal.Insert(entity);
@@ -61,5 +66,10 @@ namespace MyBlogNight.BusinessLayer.Concrete
         {
             _articleDal.Update(entity);
         }
+        public List<Article> TGetArticlesByCategoryId(int categoryId)
+        {
+            return _articleDal.GetArticlesByCategoryId(categoryId);
+        }
+
     }
 }
