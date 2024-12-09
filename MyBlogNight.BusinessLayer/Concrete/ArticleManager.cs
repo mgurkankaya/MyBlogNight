@@ -71,5 +71,9 @@ namespace MyBlogNight.BusinessLayer.Concrete
             return _articleDal.GetArticlesByCategoryId(categoryId);
         }
 
+        public List<Article> TGetLastArticles()
+        {
+            return _articleDal.GetLastArticles();
+        }
     }
 }

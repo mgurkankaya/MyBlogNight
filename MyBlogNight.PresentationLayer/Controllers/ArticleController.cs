@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBlogNight.BusinessLayer.Abstract;
 using MyBlogNight.EntityLayer.Concrete;
+using X.PagedList.Extensions;
 
 namespace MyBlogNight.PresentationLayer.Controllers
 {
@@ -18,17 +19,19 @@ namespace MyBlogNight.PresentationLayer.Controllers
             return View(value);
         }
 
-       
-        public IActionResult Category(int id)
+
+        public IActionResult Category(int id, int page = 1)
         {
-            var articles = _articleService.TGetArticlesByCategoryId(id);
+            var articles = _articleService.TGetArticlesByCategoryId(id)?.ToPagedList(page, 3);
 
             if (articles == null || !articles.Any())
             {
-                return View(new List<Article>());
+                // Boş bir IPagedList döndür
+                articles = new List<Article>().ToPagedList(page, 3);
             }
 
             return View(articles);
         }
+
     }
 }

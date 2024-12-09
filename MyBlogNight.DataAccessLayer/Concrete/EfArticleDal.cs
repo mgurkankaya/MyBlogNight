@@ -64,6 +64,15 @@ namespace MyBlogNight.DataAccessLayer.Concrete
   
         }
 
+        public List<Article> GetLastArticles()
+        {
+
+            var context = new BlogContext();
+            var value = context.Articles.OrderByDescending(x=>x.CreatedDate).Take(3).ToList();
+            return value;
+
+        }
+
         public List<Article> GetArticlesByCategoryId(int categoryId)
         {
             using (var context = new BlogContext())

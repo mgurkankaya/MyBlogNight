@@ -3,7 +3,10 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
-
+@{
+    var pageString = Context.Request.Query["page"];
+    var page = !string.IsNullOrEmpty(pageString) ? Convert.ToInt32(pageString) : 1;
+}
 <section id="cta" class="section">
     <div class="container">
         <div class="row">
@@ -26,8 +29,8 @@
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="blog-custom-build">
-                        @await Component.InvokeAsync("_DefaultLayoutBlogList")
-                      
+                        @await Component.InvokeAsync("_DefaultLayoutBlogList", new { page })
+
                     </div>
                 </div>
 

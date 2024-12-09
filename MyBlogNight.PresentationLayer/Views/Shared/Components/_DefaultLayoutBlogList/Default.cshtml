@@ -1,6 +1,7 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc.Core
 @model IPagedList<Article>
+
 @foreach (var item in Model)
 {
     <div class="blog-box wow fadeIn">
@@ -23,7 +24,10 @@
                 </ul>
             </div><!-- end post-sharing -->
             <h4><a href="/Article/ArticleDetail/@item.ArticleId" title="">@item.Title</a></h4>
-            <p>@item.Detail.Substring(0, 10)</p>
+            <p>
+                @(item.Detail.Length >= 50 ? item.Detail.Substring(0, 50) : item.Detail)
+            </p>
+
             <small><a href="marketing-category.html" title="">@item.Category.CategoryName</a></small>
             <small><a href="marketing-single.html" title="">@item.CreatedDate.ToString("dd") GÜN ÖNCE OLARAK DÜZENLE</a></small>
             <small><a href="#" title="">by @item.AppUser.UserName</a></small>
@@ -36,10 +40,9 @@
     <hr class="invis">
 }
 
-<!-- Sayfalama (PagedListPager) -->
 <nav aria-label="Page navigation">
     @Html.PagedListPager(
             Model,
-            page => Url.Action("Index", new { page })
+            page => Url.Action("Index", new { page }) // Sayfalama linkleri
             )
 </nav>
