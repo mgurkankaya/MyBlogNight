@@ -1,4 +1,5 @@
-﻿@using X.PagedList
+﻿@using MyBlogNight.PresentationLayer.Helpers
+@using X.PagedList
 @using X.PagedList.Mvc.Core
 @model IPagedList<Article>
 
@@ -36,7 +37,7 @@
                                                 <h4><a href="/Article/ArticleDetail/@article.ArticleId" title="">@article.Title</a></h4>
                                                 <p>@article.Detail.Substring(0, 10)</p>
                                                 <small><a href="#" title="">@article.Category.CategoryName</a></small>
-                                                <small><a href="#" title="">@article.CreatedDate.ToString("dd MMM yyyy")</a></small>
+                                                <small><a href="marketing-single.html" title="">@TimeHelper.GetTimeAgo(article.CreatedDate)</a></small>
                                                 <small><a href="#" title=""><i class="fa fa-eye"></i> @article.ArticleViewCount</a></small>
                                             </div>
                                         </div>
@@ -56,11 +57,19 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav aria-label="Page navigation">
-                            @Html.PagedListPager(
-                                     Model,
-                                     page => Url.Action("Index", new { page }) // Sayfalama linkleri
-                                     )
+                            <ul class="pagination justify-content-center">
+                                @Html.PagedListPager(
+                                         Model,
+                                         page => Url.Action("Index", new { page }) // Sayfalama linkleri
+                                         , new PagedListRenderOptions()
+                                {
+                                    LiElementClasses = new List<string>
+                                {"page-item", "page-link"}
+                                })
+                            </ul>
                         </nav>
+
+
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end col -->

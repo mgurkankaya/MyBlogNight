@@ -21,10 +21,34 @@
                     }
 
                 </ul>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <ul class="navbar-nav ms-auto">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Member/Dashboard/Index">
+                                <i class="fa fa-user-circle"></i> Merhaba, @User.Identity.Name
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Login/Logout">
+                                <i class="fa fa-sign-out-alt"></i> Çıkış Yap
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Login/Index">
+                                <i class="fa fa-sign-in-alt"></i> Giriş Yap
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Register/SignUp">
+                                <i class="fa fa-user-plus"></i> Kayıt Ol
+                            </a>
+                        </li>
+                    }
+                </ul>
             </div>
         </nav>
     </div><!-- end container-fluid -->

@@ -17,5 +17,6 @@ namespace MyBlogNight.DataAccessLayer.Abstract
         public List<Article> GetTopArticles();
         List<Article> GetArticlesByCategoryId(int categoryId);
         public List<Article> GetLastArticles();
+        public List<Article> GetLastArticlesForFeature();
     }
 }

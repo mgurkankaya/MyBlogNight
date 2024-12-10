@@ -64,6 +64,15 @@ namespace MyBlogNight.DataAccessLayer.Concrete
   
         }
 
+        public List<Article> GetLastArticlesForFeature()
+        {
+
+            var context = new BlogContext();
+            var value = context.Articles.OrderByDescending(x => x.CreatedDate).Take(1).ToList();
+            return value;
+
+        }
+
         public List<Article> GetLastArticles()
         {
 

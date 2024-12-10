@@ -13,5 +13,7 @@ namespace MyBlogNight.PresentationLayer.ViewComponents.UILayout
             var articles = _articleService.TArticleListWidthCategoryAndAppUser().ToPagedList(page, 3);
             return View(articles);
         }
+
+
     }
 }

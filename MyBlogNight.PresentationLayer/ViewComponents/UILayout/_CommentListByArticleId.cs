@@ -6,9 +6,9 @@ using MyBlogNight.EntityLayer.Concrete;
 namespace MyBlogNight.PresentationLayer.ViewComponents.UILayout
 {
 
-    public class _CommentListByArticleId(ICommentService _commentService, UserManager<AppUser> _userManager) :ViewComponent
+    public class _CommentListByArticleId(ICommentService _commentService, UserManager<AppUser> _userManager) : ViewComponent
     {
-  
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             // Kullanıcı giriş yapmış mı kontrol et
@@ -36,6 +36,4 @@ namespace MyBlogNight.PresentationLayer.ViewComponents.UILayout
             return View(value);
         }
     }
-
-
-    }
+}

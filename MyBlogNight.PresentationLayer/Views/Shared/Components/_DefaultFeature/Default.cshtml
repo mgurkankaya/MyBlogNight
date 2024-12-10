@@ -1,0 +1,13 @@
+﻿@model List<Article>
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-8 col-md-12 align-self-center">
+        <h2>@item.Title</h2>
+        <p class="lead">@item.Detail</p>
+        <a href="/Article/ArticleDetail/@item.ArticleId" class="btn btn-primary">Detay</a>
+    </div>
+}

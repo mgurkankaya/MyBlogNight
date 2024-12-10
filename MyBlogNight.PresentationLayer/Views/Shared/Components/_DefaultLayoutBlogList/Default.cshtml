@@ -1,4 +1,5 @@
-﻿@using X.PagedList
+﻿@using MyBlogNight.PresentationLayer.Helpers
+@using X.PagedList
 @using X.PagedList.Mvc.Core
 @model IPagedList<Article>
 
@@ -29,7 +30,8 @@
             </p>
 
             <small><a href="marketing-category.html" title="">@item.Category.CategoryName</a></small>
-            <small><a href="marketing-single.html" title="">@item.CreatedDate.ToString("dd") GÜN ÖNCE OLARAK DÜZENLE</a></small>
+            <small><a href="marketing-single.html" title="">@TimeHelper.GetTimeAgo(item.CreatedDate)</a></small>
+
             <small><a href="#" title="">by @item.AppUser.UserName</a></small>
             <small><a href="#" title=""><i class="fa fa-eye"></i> @item.ArticleViewCount</a></small>
         </div><!-- end meta -->
@@ -41,8 +43,18 @@
 }
 
 <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
     @Html.PagedListPager(
             Model,
             page => Url.Action("Index", new { page }) // Sayfalama linkleri
-            )
+                 , new PagedListRenderOptions()
+        {
+            LiElementClasses = new List<string>
+        {"page-item", "page-link"}
+        })
+    </ul>
 </nav>
+
+
+
+  
