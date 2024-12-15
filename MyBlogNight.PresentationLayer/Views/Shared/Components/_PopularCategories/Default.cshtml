@@ -1,0 +1,16 @@
+﻿@model IEnumerable<CategoryArticleCountDto>
+
+<div class="widget">
+    <h2 class="widget-title">Popüler Kategoriler</h2>
+    <div class="link-widget">
+        <ul>
+            @foreach (var category in Model)
+            {
+                <li>
+                    <a href="/Category/@category.CategoryName">@category.CategoryName</a>
+                    <span>({@category.ArticleCount})</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

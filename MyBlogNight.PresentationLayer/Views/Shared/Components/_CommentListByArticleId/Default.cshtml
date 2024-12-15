@@ -1,43 +1,36 @@
-﻿@model List<Comment>
+﻿@model IEnumerable<Comment>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var comment in Model)
+    {
+    
 
 
-   
-        <div class="custombox clearfix">
-            @if (Model.Count>1)
-    {
-          <h4 class="small-title">@Model.Count Yorum Yapıldı</h4>
-    }
-    else
-    {
-        <h4 class="small-title">Henüz hiç yorum yapılmadı.</h4>
-    }
 
-    @if (ViewBag.IsLoggedIn == false)
-    {
-        <div class="alert alert-warning" role="alert">
-            Yorumları görmek için giriş yapmanız gerekiyor.
-        </div>
-    }
-     else
-    {      
-    @foreach (var item in Model)
-    {
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="comments-list">
-                        <div class="media">
-                            <a class="media-left" href="#">
-                                <img src="@item.AppUser.ImageUrl" alt="" class="rounded-circle">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading user_name">>@item.AppUser.Name <small>@item.CreatedDate.ToString("dd-MMM-yyyy")</small></h4>
-                                <p>@item.CommentDetail</p>
-                                <a href="#" class="btn btn-primary btn-sm">Yanıtla</a>
-                            </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="comments-list">
+                    <div class="media">
+                        <a class="media-left" href="#">
+                            <img src="@comment.AppUser.ImageUrl" alt="" class="rounded-circle">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading user_name">>@comment.AppUser.Name <small>@comment.CreatedDate.ToString("dd-MMM-yyyy")</small></h4>
+                            <p>@comment.CommentDetail</p>
+                            <a href="#" class="btn btn-primary btn-sm">Yanıtla</a>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
+
+
+
     }
-    }
-        </div>
+}
+else
+{
+    <p>Bu makaleye henüz yorum yapılmamış.</p>
+}

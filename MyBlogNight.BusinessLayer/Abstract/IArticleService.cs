@@ -1,4 +1,5 @@
 ﻿using MyBlogNight.BusinessLayer.Abstract;
+using MyBlogNight.DtoLayer.Dtos.CategoryDtos;
 using MyBlogNight.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,8 @@ namespace MyBlogNight.BusinessLayer.Abstract
         List<Article> TGetArticlesByCategoryId(int categoryId);
         public List<Article> TGetLastArticles();
         public List<Article> TGetLastArticlesForFeature();
-       
+
+        IEnumerable<CategoryArticleCountDto> TGetArticleCountByCategory();
 
     }
 }

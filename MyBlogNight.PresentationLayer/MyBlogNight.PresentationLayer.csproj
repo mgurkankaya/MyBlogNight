@@ -4980,6 +4980,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyBlogNight.BusinessLayer\MyBlogNight.BusinessLayer.csproj" />
+    <ProjectReference Include="..\MyBlogNight.DtoLayer\MyBlogNight.DtoLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

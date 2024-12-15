@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyBlogNight.BusinessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Abstract;
+using MyBlogNight.DtoLayer.Dtos.CategoryDtos;
 using MyBlogNight.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -82,6 +83,9 @@ namespace MyBlogNight.BusinessLayer.Concrete
            return _articleDal.GetLastArticlesForFeature();
         }
 
-       
+        public IEnumerable<CategoryArticleCountDto> TGetArticleCountByCategory()
+        {
+            return _articleDal.GetArticleCountByCategory();
+        }
     }
 }

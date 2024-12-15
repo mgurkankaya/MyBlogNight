@@ -2,6 +2,7 @@
 using MyBlogNight.DataAccessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Context;
 using MyBlogNight.DataAccessLayer.Repositories;
+using MyBlogNight.DtoLayer.Dtos.CategoryDtos;
 using MyBlogNight.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,21 @@ namespace MyBlogNight.DataAccessLayer.Concrete
                     .OrderByDescending(a => a.ArticleViewCount)
                     .ToList();
             }
+        }
+
+        public IEnumerable<CategoryArticleCountDto> GetArticleCountByCategory()
+        {
+            var context = new BlogContext();
+            var value = context.Articles
+        .GroupBy(a => a.Category.CategoryName)
+        .Select(g => new CategoryArticleCountDto
+        {
+            CategoryName = g.Key,
+            ArticleCount = g.Count()
+        })
+        .ToList();
+
+            return value;
         }
     }
 }

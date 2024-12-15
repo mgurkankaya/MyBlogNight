@@ -1,4 +1,5 @@
-﻿using MyBlogNight.EntityLayer.Concrete;
+﻿using MyBlogNight.DtoLayer.Dtos.CategoryDtos;
+using MyBlogNight.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,7 @@ namespace MyBlogNight.DataAccessLayer.Abstract
         List<Article> GetArticlesByCategoryId(int categoryId);
         public List<Article> GetLastArticles();
         public List<Article> GetLastArticlesForFeature();
+        IEnumerable<CategoryArticleCountDto> GetArticleCountByCategory();
+
     }
 }
