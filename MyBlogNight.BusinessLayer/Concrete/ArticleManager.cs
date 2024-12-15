@@ -1,4 +1,5 @@
-﻿using MyBlogNight.BusinessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlogNight.BusinessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Abstract;
 using MyBlogNight.EntityLayer.Concrete;
 using System;
@@ -80,5 +81,7 @@ namespace MyBlogNight.BusinessLayer.Concrete
         {
            return _articleDal.GetLastArticlesForFeature();
         }
+
+       
     }
 }

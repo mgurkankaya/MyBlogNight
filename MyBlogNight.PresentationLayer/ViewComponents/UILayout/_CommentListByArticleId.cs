@@ -33,7 +33,7 @@ namespace MyBlogNight.PresentationLayer.ViewComponents.UILayout
             var value = _commentService.TGetCommentsByAppUserId(userValue.Id);
 
             ViewBag.IsLoggedIn = true;
-            return View(value);
+            return View(value ?? new List<Comment>());
         }
     }
 }

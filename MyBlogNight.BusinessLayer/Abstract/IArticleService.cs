@@ -20,6 +20,7 @@ namespace MyBlogNight.BusinessLayer.Abstract
         List<Article> TGetArticlesByCategoryId(int categoryId);
         public List<Article> TGetLastArticles();
         public List<Article> TGetLastArticlesForFeature();
+       
 
     }
 }

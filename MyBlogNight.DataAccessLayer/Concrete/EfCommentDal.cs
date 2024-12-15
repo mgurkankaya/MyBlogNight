@@ -25,7 +25,10 @@ namespace MyBlogNight.DataAccessLayer.Concrete
         public List<Comment> GetCommentsByArticleId(int id)
         {
             var context = new BlogContext();
-            var value = context.Comments.Where(x=>x.ArticleId == id).Include(y=>y.AppUser).ToList();
+            var value = context.Comments
+        .Include(c => c.AppUser) // Kullanıcı bilgilerini dahil et
+        .Where(c => c.ArticleId == id) // Yalnızca ilgili makaleye ait yorumlar
+        .ToList();
             return value;
         }
     }
