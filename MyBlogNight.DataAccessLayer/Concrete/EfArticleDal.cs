@@ -2,7 +2,7 @@
 using MyBlogNight.DataAccessLayer.Abstract;
 using MyBlogNight.DataAccessLayer.Context;
 using MyBlogNight.DataAccessLayer.Repositories;
-using MyBlogNight.DtoLayer.Dtos.CategoryDtos;
+using MyBlogNight.DtoLayer;
 using MyBlogNight.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;

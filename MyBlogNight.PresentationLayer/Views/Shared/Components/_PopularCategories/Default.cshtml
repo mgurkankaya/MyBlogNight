@@ -1,7 +1,8 @@
-﻿@model IEnumerable<CategoryArticleCountDto>
+﻿@using MyBlogNight.DtoLayer;
+@model IEnumerable<CategoryArticleCountDto>
 
 <div class="widget">
-    <h2 class="widget-title">Popüler Kategoriler</h2>
+    <h2 class="widget-title">Kategoriler</h2>
     <div class="link-widget">
         <ul>
             @foreach (var category in Model)

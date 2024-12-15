@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyBlogNight.DataAccessLayer\MyBlogNight.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\MyBlogNight.DtoLayer\MyBlogNight.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>

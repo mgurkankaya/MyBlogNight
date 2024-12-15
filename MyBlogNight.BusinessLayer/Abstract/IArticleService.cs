@@ -1,5 +1,5 @@
 ﻿using MyBlogNight.BusinessLayer.Abstract;
-using MyBlogNight.DtoLayer.Dtos.CategoryDtos;
+using MyBlogNight.DtoLayer;
 using MyBlogNight.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBlogNight.DtoLayer.Dtos.CategoryDtos
+namespace MyBlogNight.DtoLayer
 {
     public class CategoryArticleCountDto
     {
@@ -12,3 +12,4 @@ namespace MyBlogNight.DtoLayer.Dtos.CategoryDtos
         public int ArticleCount { get; set; }
     }
 }
+
