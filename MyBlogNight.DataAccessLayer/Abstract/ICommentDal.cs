@@ -11,5 +11,6 @@ namespace MyBlogNight.DataAccessLayer.Abstract
     {
         List<Comment> GetCommentsByArticleId(int id);
         List<Comment> GetCommentsByAppUserId(int id);
+        public int GetCommentsByAuthorId(int authorId);
     }
 }

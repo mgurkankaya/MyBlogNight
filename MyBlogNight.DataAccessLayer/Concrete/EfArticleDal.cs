@@ -23,14 +23,14 @@ namespace MyBlogNight.DataAccessLayer.Concrete
         public List<Article> ArticleListWidthCategoryAndAppUser()
         {
             var context = new BlogContext();
-            var values = context.Articles.Include(x => x.Category).Include(x => x.AppUser).ToList();
+            var values = context.Articles.Include(x => x.Category).Include(x => x.AppUser).OrderByDescending(x => x.CreatedDate).ToList();
             return values;
         }
 
         public List<Article> ArticleListWithCategory()
         {
             var context = new BlogContext();
-            var value = context.Articles.Include(x => x.Category).ToList();
+            var value = context.Articles.Include(x => x.Category).OrderByDescending(x => x.CreatedDate).ToList();
             return value;
         }
 

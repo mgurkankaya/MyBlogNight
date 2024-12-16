@@ -3,11 +3,12 @@ using MyBlogNight.BusinessLayer.Abstract;
 using MyBlogNight.BusinessLayer.ValidationRules.CategoryValidationRules;
 using MyBlogNight.EntityLayer.Concrete;
 using FluentValidation.Results;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.ComponentModel.DataAnnotations;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
-namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
+namespace MyBlogNight.PresentationLayer.Areas.Member.Controllers
 {
-    [Area("Admin")]
+    [Area("Member")]
     [Route("[area]/[controller]/[action]/{id?}")]
     public class CategoryController(ICategoryService _categoryService) : Controller
     {
@@ -19,7 +20,7 @@ namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult CreateCategory()
         {
-           
+
             return View();
         }
 
@@ -45,7 +46,7 @@ namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
             }
 
 
-         
+
         }
 
         public IActionResult DeleteCategory(int id)
@@ -57,7 +58,7 @@ namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult UpdateCategory(int id)
         {
-          
+
             var value = _categoryService.TGetById(id);
             return View(value);
         }
@@ -82,7 +83,7 @@ namespace MyBlogNight.PresentationLayer.Areas.Admin.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
                 return View();
-            }    
+            }
         }
     }
 }

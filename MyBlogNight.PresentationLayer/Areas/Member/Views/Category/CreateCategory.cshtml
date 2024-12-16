@@ -1,0 +1,44 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/MemberLayout/Index.cshtml";
+}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Kategori</h4>
+                    <span class="ml-1">Ekle</span>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12 col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Kategori Ekleme Sayfası</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form method ="post">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="text" asp-for="CategoryName" id="CategoryName" class="form-control" placeholder="Kategori adı girin" />
+                                        <span class="text-danger" asp-validation-for="CategoryName"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Kategoriyi Ekle</button>
+                                    <a href="/Member/Category/CategoryList" class="btn btn-danger">
+                                        <i class="fa fa-arrow-left"></i> Geri Dön
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

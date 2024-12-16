@@ -34,6 +34,11 @@ namespace MyBlogNight.BusinessLayer.Concrete
             return _commentDal.GetCommentsByArticleId(id);
         }
 
+        public int TGetCommentsByAuthorId(int authorId)
+        {
+            return _commentDal.GetCommentsByAuthorId((int)authorId);
+        }
+
         public void TInsert(Comment entity)
         {
             _commentDal.Insert(entity);

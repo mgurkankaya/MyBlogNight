@@ -1,6 +1,6 @@
 ﻿@model List<MyBlogNight.EntityLayer.Concrete.Article>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ArticleList";
     Layout = "~/Views/MemberLayout/Index.cshtml";
     int count = 0;
 }
@@ -10,15 +10,14 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-                    <h4>Hoşgeldin, Yazar Adı Soyadı</h4>
-                    <p class="mb-0">Sana ait yazar paneli burasıdır.</p>
+                    <h4>Hoşgeldin, @ViewData["UserFullName"]</h4>
+                    <p class="mb-0">Sana ait makalelerin yer aldığı sayfa burasıdır.</p>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Bootstrap</a></li>
-                </ol>
+                <a href="/Member/Article/CreateArticle" class="btn btn-success d-flex align-items-center">
+                    <i class="fa fa-plus-circle me-2"></i> Yeni Makale Ekle
+                </a>
             </div>
         </div>
         <!-- row -->
@@ -38,6 +37,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Makale Adı</th>
+                                        <th>İşlemler</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,13 +45,21 @@
                                     {
                                         count++;
 
-                                   
-                                    <tr>
-                                        <th>@count</th>
-                                        <td>@item.Title</td>
-                                        
-                                    </tr>
-                                
+
+                                        <tr>
+                                            <th>@count</th>
+                                            <td>@item.Title</td>
+                                            <td>
+                                                <a href="/Member/Article/DeleteArticle/@item.ArticleId" class="text-danger mx-2" title="Sil">
+                                                    <i class="fa fa-trash fa-2x"></i>
+                                                </a>
+                                                <a href="/Member/Article/UpdateArticle/@item.ArticleId" class="text-warning mx-2" title="Güncelle">
+                                                    <i class="fa fa-edit fa-2x"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
                                     }
                                 </tbody>
                             </table>

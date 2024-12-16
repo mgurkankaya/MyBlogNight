@@ -5,11 +5,8 @@
 
 @{
     ViewData["Title"] = "Category";
-    Layout = "~/Views/UILayout/Index.cshtml"; ;
+    Layout = "~/Views/UILayout/Index.cshtml";
 }
-
-
-
 
 <section class="section lb">
     <div class="container">
@@ -17,10 +14,7 @@
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="blog-custom-build">
-
-
                         <div class="container">
-                        
                             <h2>Kategorilere göre makaleler</h2>
                             @if (Model != null && Model.Any())
                             {
@@ -35,7 +29,23 @@
                                             </div>
                                             <div class="blog-meta big-meta text-center">
                                                 <h4><a href="/Article/ArticleDetail/@article.ArticleId" title="">@article.Title</a></h4>
-                                                <p>@article.Detail.Substring(0, 10)</p>
+                                                <p>
+                                                    @if (!string.IsNullOrEmpty(article.Detail))
+                                                    {
+                                                        @if (article.Detail.Length >= 30)
+                                                        {
+                                                            @article.Detail.Substring(0, 30)
+                                                        }
+                                                        else
+                                                        {
+                                                            @article.Detail
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                    <p>Detay bulunamadı.</p>
+                                                    }
+                                                </p>
                                                 <small><a href="#" title="">@article.Category.CategoryName</a></small>
                                                 <small><a href="marketing-single.html" title="">@TimeHelper.GetTimeAgo(article.CreatedDate)</a></small>
                                                 <small><a href="#" title=""><i class="fa fa-eye"></i> @article.ArticleViewCount</a></small>
@@ -68,8 +78,6 @@
                                 })
                             </ul>
                         </nav>
-
-
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end col -->

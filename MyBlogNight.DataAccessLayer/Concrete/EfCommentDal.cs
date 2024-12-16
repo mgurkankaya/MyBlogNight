@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace MyBlogNight.DataAccessLayer.Concrete
 {
@@ -29,6 +30,13 @@ namespace MyBlogNight.DataAccessLayer.Concrete
         .Include(c => c.AppUser) // Kullanıcı bilgilerini dahil et
         .Where(c => c.ArticleId == id) // Yalnızca ilgili makaleye ait yorumlar
         .ToList();
+            return value;
+        }
+
+        public int GetCommentsByAuthorId(int authorId)
+        {
+            var context = new BlogContext();
+            var value = context.Comments.Count(c => c.AppUserId == authorId);
             return value;
         }
     }

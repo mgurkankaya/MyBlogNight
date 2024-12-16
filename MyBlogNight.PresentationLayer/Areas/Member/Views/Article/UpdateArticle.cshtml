@@ -1,0 +1,55 @@
+﻿@model Article
+@{
+    ViewData["Title"] = "UpdateArticle";
+    Layout = "~/Views/MemberLayout/Index.cshtml";
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Makale</h4>
+                    <span class="ml-1">Güncelle</span>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12 col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Makale Güncelleme Sayfası</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="AppUserId" />
+
+                                    <input type="text" asp-for="ArticleId" id="CategoryId" class="form-control" readonly />
+                                    <label>Başlık</label>
+                                    <input type="text" asp-for="Title" class="form-control"  />
+                                    <label>Küçük Kapak Fotoğrafı</label>
+                                    <input type="text" asp-for="CoverImageUrl" class="form-control"  />
+                                    <label>Ana Kapak Fotoğrafı</label>
+                                    <input type="text" asp-for="MainImageUrl" class="form-control" />
+                                    <label>Kategori Seç</label>
+                                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+                                    <label>Makale İçeriği</label>
+                                    <textarea asp-for="Detail" class="form-control" rows="10" ></textarea>
+                                </div>
+                                <div class="mt-3 text-end">
+                                    <button type="submit" class="btn btn-secondary">Güncelle</button>
+                                    <a href="/Member/Article/ArticleList" class="btn btn-secondary">
+                                        <i class="bi bi-arrow-left"></i> Geri Dön
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -26,6 +26,7 @@ namespace MyBlogNight.PresentationLayer.Controllers
                 Email = model.Email,
                 Surname = model.Surname,
                 UserName = model.UserName,
+                MemberAbout = "bilgilerinizi güncelleyin.",
                 ImageUrl = "test"
 
             };

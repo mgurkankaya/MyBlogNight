@@ -1,0 +1,54 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/MemberLayout/Index.cshtml";
+}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Kategori</h4>
+                    <span class="ml-1">Güncelle</span>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12 col-xxl-12">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="card-title text-white">Kategori Güncelleme Sayfası</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form method="post">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="CategoryId" class="form-label fw-bold">Kategori ID</label>
+                                        <input type="text" asp-for="CategoryId" id="CategoryId" class="form-control" readonly />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="CategoryName" class="form-label fw-bold">Kategori Adı</label>
+                                        <input type="text" asp-for="CategoryName" id="CategoryName" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="CategoryName"></span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12 text-end">
+                                        <button type="submit" class="btn btn-primary me-2">
+                                            <i class="fa fa-save"></i> Güncelle
+                                        </button>
+                                        <a href="/Member/Category/CategoryList" class="btn btn-danger">
+                                            <i class="fa fa-arrow-left"></i> Geri Dön
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
